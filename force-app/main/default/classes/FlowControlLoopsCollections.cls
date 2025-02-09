@@ -14,7 +14,7 @@
 * in flow control, loops, and collections. By mastering these concepts, developers will be able to write more
 * efficient and effective code in their Salesforce projects.
 *
-* @author Your Name
+* @author Temitayo Oluwalade
 */
 
 public with sharing class FlowControlLoopsCollections {
@@ -29,20 +29,22 @@ public with sharing class FlowControlLoopsCollections {
      * @return "Hello World!" if x greater than y, otherwise return null.
      */
     public static String helloWorld(Integer x, Integer y) {
-        return null; // Replace null with the variable you used to store the result
+        if (x == null || y == null || x <= y) {
+            return null;
+        }
+        return 'Hello World!';
     }
 
     /**
      * Question 2
      * Checks if a person is eligible to vote based on their age.
      * A person is eligible to vote if they are 18 years old or older.
-     * If the age is less than 18, the method will return false.
      * Example: votingEligibility(18) should return true
      * @param age The age of the person.
      * @return true if the person is eligible to vote, false otherwise.
      */
     public static Boolean votingEligibility(Integer age) {
-        return null; // Replace null with the variable you used to store the result
+        return age >= 18;
     }
 
     /**
@@ -55,35 +57,40 @@ public with sharing class FlowControlLoopsCollections {
      * @return The maximum of the two numbers, or null if either number is null.
      */
     public static Integer findMax(Integer num1, Integer num2) {
-        // Initialize largestNum as null
-        Integer largestNum = null;
-
-        return null; // Replace null with the variable you used to store the result
+        if (num1 == null || num2 == null) {
+            return null;
+        }
+        return num1 > num2 ? num1 : num2;
     }
-
 
     /**
      * Question 4
      * Checks if a number is positive, negative, or zero.
-     * If the number is null, return null.
      * Example: checkNumber(5) should return "Positive"
      * @param a The number to check.
      * @return A string indicating whether the number is "Positive", "Negative", or "Zero", or null if the number is null.
      */
     public static String checkNumber(Integer a) {
-        return null; // Replace null with the variable you used to store the result
+        if (a == null) {
+            return null;
+        }
+        if (a > 0) return 'Positive';
+        if (a < 0) return 'Negative';
+        return 'Zero';
     }
 
     /**
      * Question 5
      * Checks if a number is even or odd.
-     * If the number is null, return null.
      * Example: checkEvenOdd(2) should return "Even"
      * @param a The number to check.
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        return null; // Replace null with the variable you used to store the result
+        if (a == null) {
+            return null;
+        }
+        return Math.mod(a, 2) == 0 ? 'Even' : 'Odd';
     }
 
     /**
@@ -94,25 +101,29 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
-        return null; // Replace null with the variable you used to store the result
+        if (a == null) {
+            return 'Null';
+        }
+        if (a == '') {
+            return 'Empty';
+        }
+        return 'Contains Text';
     }
 
     /**
      * Question 7
      * Determines the grade based on the score.
-     * Grade A if score is greater than or equal to 90.
-     * Grade B if score is greater than or equal to 80.
-     * Grade C if score is greater than or equal to 70.
-     * Grade D if score is greater than or equal to 60.
-     * Grade F otherwise.
      * Example: determineGrade(85) should return "B"
      * @param score The score.
      * @return The grade for the given score.
      */
     public static String determineGrade(Integer score) {
-        return null; // Replace null with the variable you used to store the result
+        if (score >= 90) return 'A';
+        if (score >= 80) return 'B';
+        if (score >= 70) return 'C';
+        if (score >= 60) return 'D';
+        return 'F';
     }
-
 
     /**
      * Question 8
@@ -122,13 +133,11 @@ public with sharing class FlowControlLoopsCollections {
      * @return The sum of all integers up to the limit.
      */
     public static Integer sumUpToLimit(Integer intLimit) {
-        /* 
-         for (){
-            
-         }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+        Integer sum = 0;
+        for (Integer i = 1; i <= intLimit; i++) {
+            sum += i;
+        }
+        return sum;
     }
 
     /**
@@ -138,41 +147,30 @@ public with sharing class FlowControlLoopsCollections {
      * @return The string "Hello World!; Hello World!; Hello World!; "
      */
     public static String returnHelloWorld() {
-        // Initialize the result String
-
-        // Use a for loop to append 'Hello World!;' to the result string three times
-        /* 
-         for (){
-            
-         }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+        String result = '';
+        for (Integer i = 0; i < 3; i++) {
+            result += 'Hello World!; ';
+        }
+        return result;
     }
 
     /**
      * Question 10
-     * Generate a string where the input string is repeated the given number of times, with each
-	 * repetition separated by a semicolon. 
-     * Do not add a semicolon after the last repetition.
-	 * Example: repeatString("Hello World!", 3) should return "Hello World!; Hello World!; Hello World!"
+     * Generate a string where the input string is repeated the given number of times.
+     * Example: repeatString("Hello World!", 3) should return "Hello World!; Hello World!; Hello World!"
      * @param inputString The string to be repeated.
      * @param repeatCount The number of times the string should be repeated.
      * @return The new string with the inputString repeated repeatCount times.
      */
     public static String repeatString(String inputString, Integer repeatCount) {
-        // Initialize the result String
-
-        // Use a for loop to append the inputString to the result string repeatCount times
-        /*
-        for () {
-
-            // If it is not the last iteration, add a semicolon to separate the strings
+        String result = '';
+        for (Integer i = 0; i < repeatCount; i++) {
+            result += inputString;
+            if (i < repeatCount - 1) {
+                result += '; ';
+            }
         }
-        */
-
-        // Return the final result string
-        return null; // Replace null with the variable you used to store the result
+        return result;
     }
 
     /**
@@ -182,67 +180,51 @@ public with sharing class FlowControlLoopsCollections {
      * @return A List of integers containing the numbers 1, 2, and 3.
      */
     public static List<Integer> createAndPopulateList() {
-        // Create a new list of integers
-
-        // Add the integers 1, 2, and 3 to the list
-        // add 1
-        // add 2
-        // add 3
-
-        // Return the populated list
-        return null; // Replace null with the variable you used to store the result
+        List<Integer> numbers = new List<Integer>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        return numbers;
     }
 
     /**
      * Question 12
-     * Creates a List of integers and adds the integers from 1 to 5. Then it removes the number 3 from the list.
+     * Creates a List of integers and adds the integers from 1 to 5. Then removes number 3.
      * Example: createAndRemoveFromList() should return [1, 2, 4, 5]
      * @return A List of integers from 1 to 5, excluding the number 3.
      */
     public static List<Integer> createAndRemoveFromList() {
-        // Create a new list of integers and add numbers 1 to 5
-        List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
-
-        // Remove the 3rd element (number 3) from the list
-        
-        // Return the updated list
-        return null; // Replace null with the variable you used to store the result
+        List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5};
+        numberList.remove(2);
+        return numberList;
     }
 
     /**
      * Question 13
      * Create a list filled with integers based on the input parameter.
-     * Example: createIntegerList(5) should return [1, 2, 3, 4, 5] 
+     * Example: createIntegerList(5) should return [1, 2, 3, 4, 5]
      * @param n The last integer in the List.
      * @return A List of integers from 1 to 'n'.
      */
     public static List<Integer> createIntegerList(Integer n) {
-        // Create a new list of integers 
-
-        /*
-        for() {
-            //add integer to the list
+        List<Integer> numbers = new List<Integer>();
+        for (Integer i = 1; i <= n; i++) {
+            numbers.add(i);
         }
-        */ 
-
-        return null; // Replace null with the variable you used to store the result
+        return numbers;
     }
 
     /**
      * Question 14
      * Remove duplicate values from the list of Strings.
-     * The returned Set contains the unique strings from the input List.
      * Example: createStringSet(['a', 'b', 'a', 'c']) should return ['a', 'b', 'c']
      * @param inputList The List of strings.
      * @return A Set of unique strings.
      */
     public static Set<String> createStringSet(List<String> inputList) {
-        // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
-
-        //add strings to the set
-
-        return null; // Replace null with the variable you used to store the result
+        stringSet.addAll(inputList);
+        return stringSet;
     }
 
     /**
@@ -252,117 +234,100 @@ public with sharing class FlowControlLoopsCollections {
      * @return The sum of positive integers from the list.
      */
     public static Integer sumPositiveIntegers() {
-        List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-
-        // Loop through the list of integers
-            // if the number is negative skip this iteration
-        
-
-        return null; // Replace null with the variable you used to store the result
+        List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6};
+        Integer sum = 0;
+        for (Integer num : numbers) {
+            if (num <= 0) continue;
+            sum += num;
+        }
+        return sum;
     }
 
     /**
      * Question 16
-     * Iterates over a list of strings and searches for a specific word. Once found, it breaks the loop.
-     *  Example: findWordInList("World", ['Hello', 'World', 'Goodbye']) should return 1
+     * Iterates over a list of strings and searches for a specific word.
+     * Example: findWordInList("World", ['Hello', 'World', 'Goodbye']) should return 1
      * @param wordToFind The word to find in the list.
      * @param words The list of words to search.
-     * @return The position of the word in the list as a string or -1 if the word was not found.
+     * @return The position of the word in the list or -1 if not found.
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
-        // The variable to store the index of the word
-
-        // Loop through the list of words
-            // If the current word is the word to find, exit the loop
-
-        return null; // Replace null with the variable you used to store the result
+        for (Integer i = 0; i < words.size(); i++) {
+            if (words[i] == wordToFind) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
      * Question 17
-     * Loop through the list of money and adds them up until it accumulates more than 40 and then stops counting.
-     * The change values are in cents and the total is to be calculated in dollars.
+     * Counts money in wallet until it exceeds $40.
      * Example: countMoney() should return 48.02
      * @return The total value in dollars, stopped at the point when it exceeds 40 dollars.
      */
     public static Decimal countMoney() {
-        // The list of money in the wallet, represented in dollars and cents
-        List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
-
-        return null; // Replace null with the variable you used to store the result
+        List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90};
+        Decimal total = 0;
+        for (Decimal amount : moneyInWallet) {
+            total += amount;
+            if (total > 40) break;
+        }
+        return total;
     }
 
     /**
      * Question 18
-     * Create a map that has five key-value pairs to the map, where the keys are the names of fruits and the values are their quantities.
-     * Example: addItemsToMap() should return "Apples => 5, Oranges => 10, Bananas => 15, Pears => 20, Grapes => 25"
+     * Create a map with five fruit quantities.
+     * Example: addItemsToMap() should return map with 5 fruit quantities
      * @return The Map of fruits and their quantities.
      */
     public static Map<String, Integer> addItemsToMap() {
-        // Initialize an empty Map
-
-        // Add key-value pairs to the Map
-        // add Apples => 5
-        // add Oranges => 10
-        // add Bananas => 15
-        // add Pears => 20
-        // add Grapes => 25
-
-        return null; // Replace null with the variable you used to store the result
+        Map<String, Integer> fruitQuantities = new Map<String, Integer>();
+        fruitQuantities.put('Apples', 5);
+        fruitQuantities.put('Oranges', 10);
+        fruitQuantities.put('Bananas', 15);
+        fruitQuantities.put('Pears', 20);
+        fruitQuantities.put('Grapes', 25);
+        return fruitQuantities;
     }
 
     /**
      * Question 19
-     * Create a map where the keys are the names of employees and the values are their salaries.
-     * Then returns the salary of the employee whose name is specified.
+     * Get salary for the specified employee from a Map.
      * Example: getSalary("John Doe") should return 50000
-     * Resource: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm#apex_System_Map_get
      * @param employeeName The name of the employee.
-     * @return The salary of the employee, or null if the employee is not found in the Map.
+     * @return The salary of the employee, or null if not found.
      */
     public static Integer getSalary(String employeeName) {
-        // Initialize a Map
-
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
-
-        // Get the salary of the employee
-
-        // Return the salary of the employee, or null if the employee is not found in the Map
-        return null; // Replace null with the variable you used to store the result
+        Map<String, Integer> employeeSalaries = new Map<String, Integer>{
+            'John Doe' => 50000,
+            'Jane Smith' => 60000,
+            'Sam Brown' => 55000,
+            'Alice Johnson' => 65000
+        };
+        return employeeSalaries.get(employeeName);
     }
 
     /**
      * Question 20
-     * Create a map where the keys are the names of employees and the values are their salaries.
-     * Then, iterates over the map and checks if an employee's salary is more than 55000.
-     * If it is, add the employee's name to a list of employees that is returned by the method.
-     * Remember that a Map is a collection of key-value pairs. Key are a set of unique values, so you can't have duplicate keys. Values are a list of values, so you can have duplicate values.
-     * Resource: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_loops_for_lists.htm
+     * Get employees with salary over 55000.
      * Example: getHighPaidEmployees() should return ['Jane Smith', 'Alice Johnson']
-     * @return A list of employee names who have a salary more than 55000.
+     * @return List of employee names with salary over 55000.
      */
     public static List<String> getHighPaidEmployees() {
-        // Initialize a Map
-        Map<String, Integer> employeeSalaries = new Map<String, Integer>();
-
-        // Add key-value pairs to the Map
-        // add John Doe => 50000
-        // add Jane Smith => 60000
-        // add Sam Brown => 55000
-        // add Alice Johnson => 65000
-
-        // Initialize a list to store the names of high paid employees
-
-        // Iterate over the Map using a for loop
-            // Check if the salary of the employee is more than 55000
-                // Add the employee to the list of high paid employees
-
-        // Return the list of high paid employees
-        return null; // Replace null with the variable you used to store the result
+        Map<String, Integer> employeeSalaries = new Map<String, Integer>{
+            'John Doe' => 50000,
+            'Jane Smith' => 60000,
+            'Sam Brown' => 55000,
+            'Alice Johnson' => 65000
+        };
+        List<String> highPaidEmployees = new List<String>();
+        for (String employee : employeeSalaries.keySet()) {
+            if (employeeSalaries.get(employee) > 55000) {
+                highPaidEmployees.add(employee);
+            }
+        }
+        return highPaidEmployees;
     }
-
 }
